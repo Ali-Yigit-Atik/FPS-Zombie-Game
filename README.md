@@ -13,6 +13,7 @@ https://youtu.be/ukgpj0q_vT0
 * Ak-74 otomatik tüfek
 * Sniper
 * Tomahawk balta
+* Hasar alma ve hasar alma efekti
 
  #### Zombie Mekanikleri
  * Yakınındaki oyuncuyu farketme ve saldırma
@@ -20,6 +21,8 @@ https://youtu.be/ukgpj0q_vT0
  * Uzaktan hasar aldığında oyuncuya saldırma
  * Takip ve takibi bırakma
  * Npc çocuklara saldırma 
+ * Hasar alma ve hasar alma efekti
+ * Object pool ile spawn mekaniği
 
 
 ### Yapılacaklar
@@ -28,4 +31,7 @@ https://youtu.be/ukgpj0q_vT0
 * Helikoptere uçma mekaniği ekleme
 * RPG-7 ve el bombası mekaniği ekleme
 * Nesne arkalarına saklanma mekaniği ekleme
+* UI düzeni
+* Hikaye anlatımı
+* Daha iyi çevre düzeni
 
