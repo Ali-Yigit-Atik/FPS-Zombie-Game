@@ -1,5 +1,5 @@
 # FPS-Zombie-Game
-The Zombie Game where children are rescued from zombies
+
 
 ### Oyun Açıklaması
 #### Zombilerin istila ettiği bir şehirde mahsur kalan çocukları kurtarıp helikopterle şehirden ayrılmalarını sağladığımız bir  FPS oyun.
