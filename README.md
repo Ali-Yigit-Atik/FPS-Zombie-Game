@@ -24,11 +24,15 @@ https://youtu.be/ukgpj0q_vT0
  * Hasar alma ve hasar alma efekti
  * Object pool ile spawn mekaniği
 
+#### Çocukların mekanikleri
+* Hasar alma ve ölme mekaniği
+* Oyuncuyu takip etme
+* Helikoptere binme
+
+#### Helikopter Mekaniği
+* Uçma
 
 ### Yapılacaklar
-* Çocuklara hasar alma ve ölme mekaniği ekleme
-* Çocuklara health bar ekleme
-* Helikoptere uçma mekaniği ekleme
 * RPG-7 ve el bombası mekaniği ekleme
 * Nesne arkalarına saklanma mekaniği ekleme
 * UI düzeni
