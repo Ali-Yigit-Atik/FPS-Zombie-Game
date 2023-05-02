@@ -46,6 +46,8 @@ public class zombieMovement : MonoBehaviour
     private zombieHealth zombieHealth_;
     private GameObject player;
 
+    private ChildHealth childHealth_;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -60,11 +62,9 @@ public class zombieMovement : MonoBehaviour
     }
 
     
-    private void OnDisable() // when zombie die target player need to reset
+    private void OnDisable() // when zombie die values need to reset
     {
-        targetPlayer = null;
-        followDistance = beforeZombieShotDistance;
-        agent.speed = patrolSpeed;
+        ResetValues();
     }
 
     private void Update()
@@ -83,6 +83,8 @@ public class zombieMovement : MonoBehaviour
             agent.SetDestination(transform.position);
             
         }
+
+        IsTargetDead(); // it is define to not follow target anymore
 
         animations();
 
@@ -286,9 +288,38 @@ public class zombieMovement : MonoBehaviour
         {
             if (targetPlayer.CompareTag("Player")) 
             { targetPlayer.GetComponent<characterHealth>().getDamage(10, 6); }
-            // else if (targetPlayer.CompareTag("Child"))
+            else if (targetPlayer.CompareTag("Child")) 
+            {
+                targetPlayer.GetComponent<ChildHealth>().GetDamage(10, 6);
+            }
 
         }
+    }
+
+    private void IsTargetDead() 
+    {
+        if(targetPlayer != null) 
+        {
+            if (targetPlayer.CompareTag("Child"))
+            {
+                if (childHealth_ == null) childHealth_ = targetPlayer.GetComponent<ChildHealth>(); // for just one time get component in update
+                if (childHealth_.isChildDead)
+                {
+                    ResetValues();
+                }
+            }
+            // do for player
+        }
+
+    }
+
+    private void ResetValues()
+    {
+        targetPlayer = null;
+        childHealth_ = null;
+        followDistance = beforeZombieShotDistance;
+        agent.speed = patrolSpeed;
+
     }
 
 }

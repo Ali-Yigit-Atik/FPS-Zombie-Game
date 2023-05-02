@@ -14,11 +14,14 @@ public class ChildAI : MonoBehaviour
     [SerializeField] private Transform helicopterTarget;
     private bool getOnHeliCopter = false;
 
+    private ChildHealth childHealth_;
+
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         animator_ = GetComponent<Animator>();
+        childHealth_ = GetComponent<ChildHealth>();
 
 
     }
@@ -26,11 +29,16 @@ public class ChildAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         
-        FollowPlayer();
+        if (!childHealth_.dontMoveWhenTakeHit) FollowPlayer();
+        else if (childHealth_.dontMoveWhenTakeHit) agent.SetDestination(transform.position);
         Animations();
         GoToHeliCopter();
         WaveRotation();
+
+        if (childHealth_.isChildDead) GetComponent<ChildAI>().enabled =false; // dont run anymore
 
     }
 
@@ -69,6 +77,12 @@ public class ChildAI : MonoBehaviour
         }
         else if ( isInHelipad && getOnHeliCopter && Vector3.Distance(helicopterTarget.position, transform.position) <= 0.4f) 
         {
+            if (animator_.GetBool("running")) // this if check for run one time only below codes
+            {
+                Helicopter.howManyChildInHelicopter++;
+                transform.parent = helicopterTarget.transform;
+                agent.enabled = false;
+            }
             animator_.SetBool("running", false);
             Debug.Log("!getOnHeliCopter");
         }
