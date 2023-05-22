@@ -14,6 +14,8 @@ https://youtu.be/ukgpj0q_vT0
 * Sniper
 * Tomahawk balta
 * Hasar alma ve hasar alma efekti
+* Eğilme
+* Nesne arkasına(zombiden) saklanma
 
  #### Zombie Mekanikleri
  * Yakınındaki oyuncuyu farketme ve saldırma
@@ -31,11 +33,4 @@ https://youtu.be/ukgpj0q_vT0
 
 #### Helikopter Mekaniği
 * Uçma
-
-### Yapılacaklar
-* RPG-7 ve el bombası mekaniği ekleme
-* Nesne arkalarına saklanma mekaniği ekleme
-* UI düzeni
-* Hikaye anlatımı
-* Daha iyi çevre düzeni
 
