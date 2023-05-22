@@ -7,11 +7,15 @@ public class CageOpen : MonoBehaviour
 
     
     private bool openDoor =false;
-    public static bool isCageOpen = false;
+    public static bool isCageOpen;
 
     [SerializeField]private GameObject otherDoor;
 
-    
+    private void Start()
+    {
+        isCageOpen = false;
+    }
+
 
     void Update()
     {
@@ -19,7 +23,7 @@ public class CageOpen : MonoBehaviour
         {
             transform.Rotate(0,  0, -0.1f);
             otherDoor.transform.Rotate(0, 0, 0.1f);
-            Debug.Log(transform.localRotation.z);
+            //Debug.Log(transform.localRotation.z);
         }
         if(Mathf.Abs(transform.localRotation.z) > 0.5f) 
         {

@@ -8,15 +8,14 @@ public class ChildAI : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject player;
     private Animator animator_;
-
-    private GameObject helipad;
+    
     private bool isInHelipad = false;
     [SerializeField] private Transform helicopterTarget;
     private bool getOnHeliCopter = false;
 
     private ChildHealth childHealth_;
 
-    void Start()
+    private void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -26,10 +25,9 @@ public class ChildAI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-
 
         
         if (!childHealth_.dontMoveWhenTakeHit) FollowPlayer();
@@ -44,7 +42,7 @@ public class ChildAI : MonoBehaviour
 
     private void FollowPlayer() 
     {
-        if (CageOpen.isCageOpen && !isInHelipad )//&& !getOnHeliCopter) 
+        if (CageOpen.isCageOpen && !isInHelipad )
         {
             if(Vector3.Distance(transform.position, player.transform.position) > 4f) 
             {
@@ -69,7 +67,7 @@ public class ChildAI : MonoBehaviour
 
     private void GoToHeliCopter() 
     {
-        if (getOnHeliCopter && Vector3.Distance(helicopterTarget.position, transform.position) > 0.4f)  //(Mathf.Abs(helicopterTarget.position.y) - Mathf.Abs(transform.position.y))
+        if (getOnHeliCopter && Vector3.Distance(helicopterTarget.position, transform.position) > 0.4f)  
         {
             agent.SetDestination(helicopterTarget.position);            
             Debug.Log("getOnHeliCopter");
@@ -96,24 +94,7 @@ public class ChildAI : MonoBehaviour
         {
             animator_.SetBool("rescued", true);
         }
-        //if(Vector3.Distance(transform.position, player.transform.position) > 4f) 
-        //{
-        //    animator_.SetBool("running", true);
-        //}
-        //else if(Vector3.Distance(transform.position, player.transform.position) <= 4f && !getOnHeliCopter) 
-        //{
-        //    animator_.SetBool("running", false);
-        //}
-        //if (getOnHeliCopter) 
-        //{
-        //    animator_.SetBool("shouldWave", false);
-        //    animator_.SetBool("running", true);
-        //}
-        //
-        //if(Vector3.Distance(helicopterTarget.position, transform.position) <= 0.4f) 
-        //{
-        //    animator_.SetBool("running", false);
-        //}
+        
     }
 
     private void OnCollisionEnter(Collision collision)

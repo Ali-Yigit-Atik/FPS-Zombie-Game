@@ -11,6 +11,8 @@ TagManager:
   - GameManager
   - Child
   - Helipad
+  - BloodParticleParent
+  - DisappearParticleParent
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class HealtBarRotation : MonoBehaviour
     private GameObject player;
     private Vector3 playerRotation = new Vector3();
     private int direction = 0;
-    void Start()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerRotation.y =0;
@@ -19,10 +19,10 @@ public class HealtBarRotation : MonoBehaviour
         else direction = -1;
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-        //playerRotation = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z) - transform.position;
+        
 
         playerRotation.x = player.transform.position.x - transform.position.x;        
         playerRotation.z = player.transform.position.z - transform.position.z;

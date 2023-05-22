@@ -8,7 +8,7 @@ public class ChildHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     private int maxHealth;
-    //[SerializeField] TextMeshProUGUI healthText;
+    
     [SerializeField] private GameObject bloodParticle;
     [HideInInspector] public bool dontMoveWhenTakeHit =false;
     [HideInInspector] public bool isChildDead = false;
@@ -17,25 +17,33 @@ public class ChildHealth : MonoBehaviour
     private Animator animator_;
     [SerializeField] private Image healthBar;
 
-    void Start()
+    private void OnEnable()
+    {
+        Helicopter.howManyChildrenIsAlive++;
+    }
+    
+
+    private void Start()
     {
         ps = bloodParticle.gameObject.GetComponent<ParticleSystem>();
         animator_ = GetComponent<Animator>();
         maxHealth = health;
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
         
         health = Mathf.Clamp(health, 0, maxHealth);
-        //healthText.text = health.ToString();
+        
 
 
         if (health <= 0 && !animator_.GetBool("isDead"))
         {
             animator_.SetBool("isDead", true);
             isChildDead = true;
+            Helicopter.howManyChildrenIsAlive--;
         }
         
     }
@@ -49,7 +57,7 @@ public class ChildHealth : MonoBehaviour
         ps.Play();
     }
 
-    private void EndOFTakingDamage() 
+    private void EndOFTakingDamage() // call in animator
     {
         dontMoveWhenTakeHit = false;
     }
