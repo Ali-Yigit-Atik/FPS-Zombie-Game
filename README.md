@@ -24,6 +24,7 @@ https://youtu.be/ukgpj0q_vT0
  * Takip ve takibi bırakma
  * Npc çocuklara saldırma 
  * Hasar alma ve hasar alma efekti
+ * Headshot
  * Object pool ile spawn mekaniği
 
 #### Çocukların mekanikleri
